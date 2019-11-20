@@ -1,4 +1,4 @@
-# How to build Web using mvc with python writen by Songjiang Zhang
+# How to build Web using mvc with python writen @ Songjiang Zhang
 ## Build development environment
     1 create root folder FlaskWeb
     2 cd Flaskweb then python -m venv env : [env is your develop environment include packages]
@@ -67,11 +67,13 @@
     db.session.commit()
 
 ## Run App
+    
     python manage.py runserver
+
 ## Tips
+
 * all main() point of app exit in the top level of flaskweb,for example test.py is testcase main entry, tests fold include many testcases. manage.py is app main entry.
-
-
+* A standlone file include all code is simple but not good, and the reasonable structure looks like the above example.
 
 ### Privacy Statement
 The [Microsoft Enterprise and Developer Privacy Statement]() describes the privacy statement of this software.

@@ -60,8 +60,8 @@
     python manage.py shell
     from manage import db,User
     u = User()
-    u.email ='songjiangzhang@hotmail.com'
-    u.username = 'zsj'
+    u.email ='AAAAAA@hotmail.com'
+    u.username = 'userA'
     u.password = '1234'
     db.session.add(u)
     db.session.commit()
@@ -76,6 +76,9 @@
 * A standlone file include all code is simple but not good, and the reasonable structure looks like the above example.
 
 ### Privacy Statement
+
 The [Microsoft Enterprise and Developer Privacy Statement]() describes the privacy statement of this software.
+
 ### License
+
 MIT © songjiangzhang@hotmail.com

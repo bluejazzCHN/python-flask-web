@@ -12,7 +12,7 @@
                 --main : [Website app root]
                     --__init__.py : [init Blueprint for main package]
                     --forms.py : [Webpage form declare]
-                    --views.py : [include route ]
+                    --views.py : [include route, presentation]
                     --erros.py
                 --static
                 --templates : [all the page of App in this fold because using templates]
@@ -40,7 +40,7 @@
                                 from .auth import userverify
                                 app.register_blueprint(userverify,url_prefix='/auth')
                                 ]
-                --models.py
+                --models.py : [include DB model and functions for view]
             --migritions
             --tests
             --__init__.py ：init function，and represent a package

@@ -39,3 +39,8 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+
+def user_get(email):
+
+    return User.query.filter_by(email=email).first()

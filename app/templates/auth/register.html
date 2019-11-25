@@ -6,12 +6,7 @@
 <div class="page-header">
     <h1>Login</h1>
 </div>
-{{ wtf.quick_form(form) }}
-<p></p>
-<p>
-    New user?
-    <a href="{{ url_for('userverify.register') }}">
-    Click here to register
-    </a>
-</p>
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+</div>
 {% endblock %}

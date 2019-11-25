@@ -1,8 +1,9 @@
 from flask import render_template, redirect, request, url_for, flash
 from flask_login import login_user,logout_user,login_required
-from ..models import user_get
-from .forms import LoginForm
+from ..models import user_get,User
+from .forms import LoginForm,RegistrationForm
 from . import userverify
+from app import db
 
 @userverify.route('/login',methods=['GET','POST'])
 def login():
@@ -13,7 +14,7 @@ def login():
             login_user(user, form.remember_me.data)
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
-                next = url_for('main.index')
+                next = url_for('blue.index')
             return redirect(next)
         flash('Invalid username or password.')
     return render_template('auth/login.html',form=form)
@@ -24,5 +25,17 @@ def login():
 def logout():
     logout_user()
     flash('You have been logged out.')
-    return redirect(url_for('main.index'))
+    return redirect(url_for('blue.index'))
 
+@userverify.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email=form.email.data,
+            username=form.username.data,
+            password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('You can now login.')
+        return redirect(url_for('userverify.login'))
+    return render_template('auth/register.html', form=form)

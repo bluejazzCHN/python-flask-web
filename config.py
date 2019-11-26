@@ -4,6 +4,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     SECRET_KEY = 'hard to guess string'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    FLASK_ADMIN ='songjiangzhang@hotmail.com'
 
     @staticmethod
     def init_app(app):

@@ -8,7 +8,7 @@
     FlaskWeb 
             --env
             --app : [every app have it's fold structure include model,view,and page]
-                --auth : [auth app root] 
+                --auth : [auth app root,provide login and logout function] 
                 --main : [Website app root]
                     --__init__.py : [init Blueprint for main package]
                     --forms.py : [Webpage form declare]

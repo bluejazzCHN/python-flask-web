@@ -54,7 +54,7 @@ class Role(db.Model):
             if role is None:
                 role = Role(name=r)
             role.reset_permissions()
-            for perm in role[r]:
+            for perm in roles[r]:
                 role.add_permissions(perm)
             role.default = (role.name == default_role)
             db.session.add(role)
@@ -123,7 +123,7 @@ class AnonymousUser(AnonymousUserMixin):
     def is_administrator(self):
         return False
 
-login_manager.anonymous_user = AnonymousUser
+
 class Permission:
     FOLLOW = 1
     COMMENT = 2
@@ -133,5 +133,7 @@ class Permission:
 
 
 def user_get(email):
-
     return User.query.filter_by(email=email).first()
+
+
+login_manager.anonymous_user = AnonymousUser

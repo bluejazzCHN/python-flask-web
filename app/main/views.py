@@ -3,8 +3,9 @@ from flask import render_template, session, redirect, url_for, flash
 from . import blue
 from .forms import NameForm
 from app import db
-from ..models import User
+from ..models import User,Role,Permission
 from flask_login import login_required
+from ..decorators import admin_required,permission_required
 
 
 @blue.route('/', methods=['GET', 'POST'])
@@ -34,3 +35,16 @@ def index():
 @blue.route('/user/<name>')
 def user(name):
     return render_template('user.html', name=name)
+
+@blue.route('/admin')
+@login_required
+@admin_required
+def for_admins_only():
+    return 'For administrator'
+
+@blue.route('/moderator')
+@login_required
+@permission_required(Permission.MODERATE)
+def for_moderators_only():
+    return 'For moderator'
+
